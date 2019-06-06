@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>OJT</title>
+                        
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css">
+                                    
+    <style type="text/css">
+        body {
+            background-color: transparent;
+        }
+        .form-control {
+            height: 46px !important;
+        }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        
+        function clickAdd() {
+            var params = {'call' : 'clickAdd', 'title' : $("#etTitle").val(), 'url' : $("#etUrl").val()};
+            
+            if ($("#etTitle").val().length > 0 && $("#etUrl").val().length > 0 ) {
+                window.webkit.messageHandlers.ioscall.postMessage(params);
+            }
+        }
+    
+        function moveList() {
+            var params = {'call' : 'moveList'};
+            window.webkit.messageHandlers.ioscall.postMessage(params);
+        }
+    
+    </script>
+</head>
+<body class="text-center">
+    <form class="form-signin">
+        <img class="mb-4" src="https://publicdomainvectors.org/photos/camera-icon.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal" style="margin-bottom: 20px;">My Photo Book</h1>
+            
+        <div class="input-group input-group-lg" style="width: 100%;">
+            <span class="input-group-addon" id="sizing-addon1">제목</span>
+            <input id="etTitle" type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon1" required autofocus>
+        </div>
+        <br>
+        <div class="input-group input-group-lg" style="width: 100%;">
+            <span class="input-group-addon" id="sizing-addon2">URL</span>
+            <input id="etUrl" type="text" class="form-control" placeholder="Image URL" aria-describedby="sizing-addon1" required>
+        </div>
+        <br>
+        <button id="btnAdd" class="btn btn-lg btn-primary btn-block" type="button" onclick="clickAdd()">Add</button>
+        
+        <button id="btnList" class="btn btn-lg btn-default btn-block" type="button" onclick="moveList()">List</button>
+    </form>
+</body>
+    
+
+    
+</html>
