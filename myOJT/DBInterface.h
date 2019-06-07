@@ -18,7 +18,7 @@
 - (int) totalCount;
 
 // 페이지로 게시글 불러오기
-- (NSArray *) searchWithPage:(int) page;
+- (NSMutableArray *) searchWithPage:(int) page;
 
 // 새 게시글 추가
 - (void) insertPhoto:(NSString *) title withUrl:(NSString *) url;

@@ -48,7 +48,7 @@
         <!--VCList-->
         <scene sceneID="7So-0i-Q51">
             <objects>
-                <viewController storyboardIdentifier="ListViewController" title="VCList" id="h4O-p0-UBr" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController title="VCList" id="h4O-p0-UBr" customClass="ListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sq-MH-TaL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -56,9 +56,52 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="table" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lne-HC-Cyv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="80" id="xIm-1a-1Ou" customClass="CustomTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xIm-1a-1Ou" id="pNQ-9g-oI2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jBN-Ar-wip">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="7Uw-01-rth"/>
+                                                        <constraint firstAttribute="width" secondItem="jBN-Ar-wip" secondAttribute="height" multiplier="1:1" id="Eyc-Bu-cs1"/>
+                                                        <constraint firstAttribute="height" constant="80" id="xpP-Ex-3u4"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfV-fx-8HF">
+                                                    <rect key="frame" x="88" y="0.0" width="326" height="80.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="Q3L-zD-cI9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="OfV-fx-8HF" secondAttribute="trailing" id="0R3-8r-RTs"/>
+                                                <constraint firstItem="OfV-fx-8HF" firstAttribute="leading" secondItem="jBN-Ar-wip" secondAttribute="trailing" constant="8" id="HYg-yc-J23"/>
+                                                <constraint firstAttribute="bottom" secondItem="jBN-Ar-wip" secondAttribute="bottom" id="IKa-El-oMg"/>
+                                                <constraint firstItem="OfV-fx-8HF" firstAttribute="leading" secondItem="jBN-Ar-wip" secondAttribute="trailing" constant="8" id="JOW-7q-YRl"/>
+                                                <constraint firstItem="jBN-Ar-wip" firstAttribute="leading" secondItem="pNQ-9g-oI2" secondAttribute="leading" id="XgU-Cc-bfA"/>
+                                                <constraint firstItem="OfV-fx-8HF" firstAttribute="top" secondItem="pNQ-9g-oI2" secondAttribute="top" id="ljk-Oh-yEG"/>
+                                                <constraint firstItem="jBN-Ar-wip" firstAttribute="top" secondItem="pNQ-9g-oI2" secondAttribute="top" id="ovg-zc-mfE"/>
+                                                <constraint firstAttribute="bottom" secondItem="OfV-fx-8HF" secondAttribute="bottom" id="ujl-Fw-4hl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ivPhoto" destination="jBN-Ar-wip" id="SIM-CE-dMP"/>
+                                            <outlet property="tvTitle" destination="OfV-fx-8HF" id="7HC-M5-z2V"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="h4O-p0-UBr" id="mJ3-LY-B43"/>
-                                    <outlet property="delegate" destination="h4O-p0-UBr" id="sYf-pp-Zhb"/>
+                                    <outlet property="dataSource" destination="h4O-p0-UBr" id="aZr-Um-sHY"/>
+                                    <outlet property="delegate" destination="h4O-p0-UBr" id="Q33-tt-oom"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -80,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJu-zB-ooN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="139"/>
+            <point key="canvasLocation" x="937.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>

@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface Photo : NSObject
-@property (nonatomic, retain) UIImage *img;
-@property (retain) NSString *title;
-+ (id) addTitle:(NSString *) title withImg:(UIImage *) img;
+
+- (NSString *) title;
+- (void) setTitle:(NSString *) title;
+
+- (NSString *) url;
+- (void) setUrl:(NSString *) url;
+
++ (Photo *) initWithTitle:(NSString *) title withUrl:(NSString *) url;
+
 @end

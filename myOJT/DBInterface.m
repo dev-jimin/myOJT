@@ -7,6 +7,7 @@
 //
 
 #import "DBInterface.h"
+#import "Photo.h"
 #import <sqlite3.h>
 #import <UIKit/UIKit.h>
 
@@ -128,15 +129,15 @@
     return result;
 }
 
-- (NSArray *) searchWithPage:(int) page {
-    NSMutableArray *result = [NSMutableArray array];
+- (NSMutableArray *) searchWithPage:(int) page {
+    NSMutableArray *result = [[NSMutableArray alloc] init];
     __block sqlite3 *db;
     const char *dbFile = [self.dbPath UTF8String];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.vc.view addSubview:self.progress];
-        self.progress.hidden = FALSE;
-        [self.progress startAnimating];
-        
+    
+    [self.vc.view addSubview:self.progress];
+    self.progress.hidden = FALSE;
+    [self.progress startAnimating];
+    @synchronized (self) {
         if (sqlite3_open(dbFile, &db) == SQLITE_OK) {
             NSString *query = @"SELECT title, url FROM myTable ORDER BY idx DESC LIMIT %ld, 15;";
             const char *sql = [[NSString stringWithFormat:query, (page - 1) * 15] UTF8String];
@@ -147,18 +148,16 @@
                     NSString *title = [NSString stringWithUTF8String:sqlite3_column_text(stmt, 0)];
                     NSString *url = [NSString stringWithUTF8String:sqlite3_column_text(stmt, 1)];
                     
-                    NSDictionary *row = @{@"title":title, @"url":url};
-                    [result addObject:row];
+                    [result addObject:[Photo initWithTitle:title withUrl:url]];
                 }
                 sqlite3_finalize(stmt);
             }
             sqlite3_close(db);
         }
-        
-        [self.progress stopAnimating];
-        self.progress.hidden = YES;
-    });
+    }
     
+    [self.progress stopAnimating];
+    self.progress.hidden = YES;
     if ([result count] == 0) return nil;
     else return result;
 }

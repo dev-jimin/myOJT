@@ -18,9 +18,8 @@
 		84FC5E6422A79479008EDE58 /* main.html in Resources */ = {isa = PBXBuildFile; fileRef = 84FC5E6322A79479008EDE58 /* main.html */; };
 		84FC5E6722A794CB008EDE58 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FC5E6622A794CB008EDE58 /* WebKit.framework */; };
 		84FC5E6A22A9ECCB008EDE58 /* DBInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC5E6922A9ECCB008EDE58 /* DBInterface.m */; };
-		84FC5E7822AA4B09008EDE58 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC5E7622AA4B09008EDE58 /* MyTableViewCell.m */; };
-		84FC5E7922AA4B09008EDE58 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FC5E7722AA4B09008EDE58 /* MyTableViewCell.xib */; };
 		84FC5E7C22AA4C94008EDE58 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC5E7B22AA4C94008EDE58 /* Photo.m */; };
+		FB3285E822AACB2F00AEBB83 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3285E722AACB2F00AEBB83 /* CustomTableViewCell.m */; };
 		FBF54CB122A966C400076E91 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF54CB022A966C400076E91 /* ListViewController.m */; };
 		FBF54CB522A96AA300076E91 /* db_ojt.db in Resources */ = {isa = PBXBuildFile; fileRef = FBF54CB322A96AA300076E91 /* db_ojt.db */; };
 /* End PBXBuildFile section */
@@ -64,11 +63,10 @@
 		84FC5E6822A9ECCB008EDE58 /* DBInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBInterface.h; sourceTree = "<group>"; };
 		84FC5E6922A9ECCB008EDE58 /* DBInterface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBInterface.m; sourceTree = "<group>"; };
 		84FC5E6B22A9EDA1008EDE58 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		84FC5E7522AA4B09008EDE58 /* MyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
-		84FC5E7622AA4B09008EDE58 /* MyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
-		84FC5E7722AA4B09008EDE58 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		84FC5E7A22AA4C94008EDE58 /* Photo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		84FC5E7B22AA4C94008EDE58 /* Photo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		FB3285E622AACB2F00AEBB83 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		FB3285E722AACB2F00AEBB83 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		FBCCBA0122A83AB8003310AE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FBF54CAF22A966C400076E91 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		FBF54CB022A966C400076E91 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
@@ -140,11 +138,10 @@
 				FBF54CB022A966C400076E91 /* ListViewController.m */,
 				84FC5E6822A9ECCB008EDE58 /* DBInterface.h */,
 				84FC5E6922A9ECCB008EDE58 /* DBInterface.m */,
-				84FC5E7522AA4B09008EDE58 /* MyTableViewCell.h */,
-				84FC5E7622AA4B09008EDE58 /* MyTableViewCell.m */,
-				84FC5E7722AA4B09008EDE58 /* MyTableViewCell.xib */,
 				84FC5E7A22AA4C94008EDE58 /* Photo.h */,
 				84FC5E7B22AA4C94008EDE58 /* Photo.m */,
+				FB3285E622AACB2F00AEBB83 /* CustomTableViewCell.h */,
+				FB3285E722AACB2F00AEBB83 /* CustomTableViewCell.m */,
 			);
 			path = myOJT;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FC22A122A78B660050C883 /* LaunchScreen.storyboard in Resources */,
-				84FC5E7922AA4B09008EDE58 /* MyTableViewCell.xib in Resources */,
 				FBF54CB522A96AA300076E91 /* db_ojt.db in Resources */,
 				84FC5E6422A79479008EDE58 /* main.html in Resources */,
 				84FC229E22A78B660050C883 /* Assets.xcassets in Resources */,
@@ -311,10 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FC5E7C22AA4C94008EDE58 /* Photo.m in Sources */,
+				FB3285E822AACB2F00AEBB83 /* CustomTableViewCell.m in Sources */,
 				84FC229922A78B650050C883 /* ViewController.m in Sources */,
 				84FC22A422A78B660050C883 /* main.m in Sources */,
 				84FC5E6A22A9ECCB008EDE58 /* DBInterface.m in Sources */,
-				84FC5E7822AA4B09008EDE58 /* MyTableViewCell.m in Sources */,
 				FBF54CB122A966C400076E91 /* ListViewController.m in Sources */,
 				84FC229622A78B650050C883 /* AppDelegate.m in Sources */,
 			);
@@ -488,8 +484,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5ML27QF5HG;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = myOJT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +493,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.myOJT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = wild_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -507,8 +503,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5ML27QF5HG;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = myOJT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,7 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.myOJT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = wild_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

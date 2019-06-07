@@ -1,14 +1,14 @@
 //
-//  MyTableViewCell.m
+//  CustomTableViewCell.m
 //  myOJT
 //
-//  Created by jiemin on 07/06/2019.
+//  Created by FrontEnd on 08/06/2019.
 //  Copyright © 2019 jiemin. All rights reserved.
 //
 
-#import "MyTableViewCell.h"
+#import "CustomTableViewCell.h"
 
-@implementation MyTableViewCell
+@implementation CustomTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -8,22 +8,30 @@
 
 #import "Photo.h"
 
-@implementation Photo
-@synthesize img;
-@synthesize title;
-
-- (id) init {
-    if (self = [super init]) {
-        
-    }
-    return self;
+@implementation Photo {
+    NSString *title;
+    NSString *url;
 }
 
-+ (id) addTitle:(NSString *)title withImg:(UIImage *)img {
-    Photo *p = [[Photo alloc] init];
-    p.img = img;
-    p.title = title;
-    return p;
++ (Photo *) initWithTitle:(NSString *)title withUrl:(NSString *)url {
+    Photo *result = [[Photo alloc] init];
+    result.title = title;
+    result.url = url;
+    return result;
+}
+
+- (NSString *)title {
+    return self -> title;
+}
+- (void)setTitle:(NSString *)title {
+    if (title != nil) self -> title = title;
+}
+
+- (NSString *)url {
+    return self -> url;
+}
+- (void)setUrl:(NSString *)url {
+    if (url != nil) self -> url = url;
 }
 
 @end
