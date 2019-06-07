@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1z7-yx-eIc">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,50 +20,67 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="o6l-K5-Fzt"/>
+                    <connections>
+                        <segue destination="h4O-p0-UBr" kind="show" identifier="moveToListVC" id="vOr-f6-CKV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
-        <!--List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="eF1-TF-5xC">
+            <objects>
+                <navigationController id="1z7-yx-eIc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E1f-nk-CLh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nTe-Jf-TjK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLf-vm-7vR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-729" y="139"/>
+        </scene>
+        <!--VCList-->
         <scene sceneID="7So-0i-Q51">
             <objects>
-                <viewController storyboardIdentifier="ListViewController" id="h4O-p0-UBr" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListViewController" title="VCList" id="h4O-p0-UBr" customClass="ListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sq-MH-TaL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e82-Pd-BRM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="pDN-f1-n1b"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="LIST" id="ypU-4A-iXT"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="table" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lne-HC-Cyv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="h4O-p0-UBr" id="mJ3-LY-B43"/>
+                                    <outlet property="delegate" destination="h4O-p0-UBr" id="sYf-pp-Zhb"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Lne-HC-Cyv" firstAttribute="bottom" secondItem="wGa-4t-K4Q" secondAttribute="bottom" id="Dgt-qF-fWq"/>
-                            <constraint firstItem="e82-Pd-BRM" firstAttribute="trailing" secondItem="wGa-4t-K4Q" secondAttribute="trailing" id="FVv-z6-fVB"/>
-                            <constraint firstItem="Lne-HC-Cyv" firstAttribute="top" secondItem="e82-Pd-BRM" secondAttribute="bottom" id="L9V-3A-dwz"/>
+                            <constraint firstItem="Lne-HC-Cyv" firstAttribute="top" secondItem="wGa-4t-K4Q" secondAttribute="top" id="F1j-j9-1E6"/>
                             <constraint firstItem="Lne-HC-Cyv" firstAttribute="leading" secondItem="wGa-4t-K4Q" secondAttribute="leading" id="dUP-MG-Iaj"/>
                             <constraint firstItem="Lne-HC-Cyv" firstAttribute="trailing" secondItem="wGa-4t-K4Q" secondAttribute="trailing" id="eYE-1N-0F1"/>
-                            <constraint firstItem="Lne-HC-Cyv" firstAttribute="top" secondItem="e82-Pd-BRM" secondAttribute="bottom" id="gJ7-dv-htA"/>
-                            <constraint firstItem="e82-Pd-BRM" firstAttribute="top" secondItem="wGa-4t-K4Q" secondAttribute="top" id="jb1-vs-qt0"/>
-                            <constraint firstItem="e82-Pd-BRM" firstAttribute="leading" secondItem="wGa-4t-K4Q" secondAttribute="leading" id="uf9-9M-apY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wGa-4t-K4Q"/>
                     </view>
+                    <navigationItem key="navigationItem" title="LIST" id="Qz4-C4-OSE">
+                        <barButtonItem key="backBarButtonItem" title=" 뒤로" id="o6A-IF-IzP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="Lne-HC-Cyv" id="LKf-UW-Gip"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJu-zB-ooN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873.91304347826099" y="138.61607142857142"/>
+            <point key="canvasLocation" x="939" y="139"/>
         </scene>
     </scenes>
 </document>

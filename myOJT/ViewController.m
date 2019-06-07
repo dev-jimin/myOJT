@@ -8,13 +8,12 @@
 
 #import "ViewController.h"
 #import "ListViewController.h"
+#import "DBInterface.h"
 #import <WebKit/WebKit.h>
+#import <Security/Security.h>
 
 @interface ViewController () <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
-//@property (nonatomic, strong) IBOutlet WKWebView *wkWebView;
-
 @property (strong, nonatomic) WKWebView *wkWebView;
-
 @end
 
 @implementation ViewController {
@@ -26,21 +25,21 @@
     WKUserContentController *jsctrl;
     
     WKPreferences *wkPref;
+    
+    DBInterface *myDB;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     wkConfig = [[WKWebViewConfiguration alloc]init];
-    
     jsctrl = [[WKUserContentController alloc]init];
-    
     wkPref = [[WKPreferences alloc] init];
-
+    
+    myDB = [[DBInterface alloc] initWithDataBaseFileName:@"my_ojt" withVC: [[[[UIApplication sharedApplication] delegate] window] rootViewController]];
+    
     wkPref.javaScriptEnabled = YES;
-    
     wkConfig.preferences = wkPref;
-    
     [jsctrl addScriptMessageHandler:self name:@"ioscall"];
     [wkConfig setUserContentController:jsctrl];
     
@@ -59,6 +58,12 @@
     [self.wkWebView loadRequest: request];
     [self.view addSubview:self.wkWebView];
     
+    NSLog(@"myTable total count %d", [myDB totalCount]);
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma mark - delegate method
@@ -73,10 +78,10 @@
                 NSString *title = messageBody[@"title"];
                 NSString *url = messageBody[@"url"];
                 
-                NSLog(@"title = %@, url = %@", title, url);
+                [myDB insertPhoto:title withUrl:url];
+                
             } else if ([call isEqualToString:@"moveList"]) {
-                ListViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-                [self presentViewController:lvc animated:YES completion:nil];
+                [self performSegueWithIdentifier:@"moveToListVC" sender:self];
             }
             
         }
@@ -105,7 +110,6 @@
 - (void) webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     NSLog(@"3. didFailNavigation");
 }
-
 
 #pragma mark - JS to iOS method
 
